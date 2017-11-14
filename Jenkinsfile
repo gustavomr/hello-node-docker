@@ -11,14 +11,14 @@ node {
     registryHost = "127.0.0.1:30400/"
     //imageName = "${registryHost}${appName}:${tag}"
     //imageName = "${appName}:${tag}"
-    imageName = "${appName}:v2"
+    imageName = "docker.io/${appName}:v2"
     env.BUILDIMG=imageName
 
     stage "Build"
        sh "echo ${imageName}"
        //sh "docker login"
        //sh "docker build -t ${imageName} ."
-	def image = docker.build('${imageName}', '.')
+	def image = docker.build(${imageName}, '.')
        sh "docker images"
     
     stage ("Push") {
