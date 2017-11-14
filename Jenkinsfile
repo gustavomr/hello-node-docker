@@ -15,12 +15,13 @@ node {
 
     stage "Build"
        sh "echo ${imageName}"
+       sh "docker login"
        sh "docker build -t ${imageName} ."
        sh "docker images"
     
     stage "Push"
-
-       //sh "docker push ${imageName}"
+	
+       sh "docker push ${imageName}"
 
     stage "Deploy"
 
