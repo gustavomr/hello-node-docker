@@ -11,7 +11,7 @@ node {
     registryHost = "127.0.0.1:30400/"
     //imageName = "${registryHost}${appName}:${tag}"
     //imageName = "${appName}:${tag}"
-    imageName = "docker.io/${appName}:v2"
+    imageName = "${appName}:v2"
     env.BUILDIMG=imageName
 
     stage "Build"
@@ -22,7 +22,7 @@ node {
        sh "docker images"
     
     stage ("Push") {
-		docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+		docker.withRegistry('docker.io', 'docker-hub-credentials') {
 	       		//sh "docker push ${imageName}" 
 			image.push()
 		} 
