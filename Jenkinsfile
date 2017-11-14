@@ -17,12 +17,14 @@ node {
     stage "Build"
        sh "echo ${imageName}"
        //sh "docker login"
-       sh "docker build -t ${imageName} ."
+       //sh "docker build -t ${imageName} ."
+	def image = docker.build('${imageName}', '.')
        sh "docker images"
     
     stage ("Push") {
 		docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-	       		sh "docker push ${imageName}" 
+	       		//sh "docker push ${imageName}" 
+			image.push()
 		} 
 	}
 
