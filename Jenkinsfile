@@ -2,8 +2,6 @@ node {
 
     checkout scm
 
-    //env.DOCKER_API_VERSION="1.23"
-    
     sh "git rev-parse --short HEAD > commit-id"
 
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
@@ -19,7 +17,7 @@ node {
        //sh "docker login"
        //sh "docker build -t ${imageName} ."
 	def image = docker.build("${imageName}")
-       sh "docker images"
+       //sh "docker images"
     
     stage ("Push") {
 		docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
