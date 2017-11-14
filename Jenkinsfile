@@ -22,7 +22,7 @@ node {
        sh "docker images"
     
     stage ("Push") {
-		docker.withRegistry('docker.io', 'docker-hub-credentials') {
+		docker.withRegistry('http://docker.io', 'docker-hub-credentials') {
 	       		//sh "docker push ${imageName}" 
 			image.push()
 		} 
