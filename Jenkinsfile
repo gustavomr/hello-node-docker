@@ -7,7 +7,7 @@ node {
     sh "git rev-parse --short HEAD > commit-id"
 
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
-    appName = "gustavomr/hello-node-docker"
+    appName = "gustavomr/hello-node"
     registryHost = "127.0.0.1:30400/"
     //imageName = "${registryHost}${appName}:${tag}"
     imageName = "${appName}:${tag}"
@@ -34,6 +34,6 @@ node {
         //sh "kubectl rollout status deployment/hello-kenzan"
 	//sh "kubectl run hello-node-pod --image=gustavomr/hello_node:latest --port=8080"
 
-	sh "kubectl set image deployment/hello-node-pod hello-node-pod=gustavomr/hello_node:v2 --kubeconfig=admin.conf"
+	sh "kubectl set image deployment/hello-node-pod hello-node-pod=gustavomr/hello_node:${imageName} --kubeconfig=admin.conf"
 	    
 }
