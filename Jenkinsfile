@@ -15,7 +15,7 @@ node {
 
     stage "Build"
        sh "echo ${imageName}"
-       sh "docker login"
+       //sh "docker login"
        sh "docker build -t ${imageName} ."
        sh "docker images"
     
