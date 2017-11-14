@@ -10,8 +10,8 @@ node {
     appName = "gustavomr/hello-node-docker"
     registryHost = "127.0.0.1:30400/"
     //imageName = "${registryHost}${appName}:${tag}"
-    //imageName = "${appName}:${tag}"
-    imageName = "${appName}:v2"
+    imageName = "${appName}:${tag}"
+    //imageName = "${appName}:v2"
     env.BUILDIMG=imageName
 
     stage "Build"
@@ -22,7 +22,7 @@ node {
        sh "docker images"
     
     stage ("Push") {
-		docker.withRegistry('https://id.docker.com', 'docker-hub-credentials') {
+		docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 	       		//sh "docker push ${imageName}" 
 			image.push()
 		} 
