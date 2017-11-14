@@ -17,7 +17,7 @@ node {
        //sh "docker login"
        //sh "docker build -t ${imageName} ."
 	def image = docker.build("${imageName}")
-	image = docker.build("latest")
+	image = docker.build("${appName}:latest")
        //sh "docker images"
     
     stage ("Push") {
