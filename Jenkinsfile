@@ -14,8 +14,8 @@ node {
     env.BUILDIMG=imageName
 
     stage "Build"
-    
-       //sh "docker build -t ${imageName} -f applications/hello-node-docker/Dockerfile applications/hello-node-docker"
+       sh "echo ${tag}"
+       //sh "docker build -t ${imageName}"
        //sh "docker images"
     
     stage "Push"
