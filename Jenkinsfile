@@ -10,7 +10,8 @@ node {
     appName = "gustavomr/hello-node-docker"
     registryHost = "127.0.0.1:30400/"
     //imageName = "${registryHost}${appName}:${tag}"
-    imageName = "${appName}:${tag}"
+    //imageName = "${appName}:${tag}"
+    imageName = "${appName}:v2"
     env.BUILDIMG=imageName
 
     stage "Build"
