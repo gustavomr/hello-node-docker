@@ -16,7 +16,7 @@ node {
        sh "echo ${imageName}"
        //sh "docker login"
        //sh "docker build -t ${imageName} ."
-	def image = docker.build("${imageName}","${appName}:latest")
+	def image = docker.build("${imageName}")
 
        //sh "docker images"
     
@@ -24,6 +24,7 @@ node {
 		docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 	       		//sh "docker push ${imageName}" 
 			image.push()
+			image.push('latest')
 		} 
 	}
 
