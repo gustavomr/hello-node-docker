@@ -27,4 +27,6 @@ node {
         //sh "sed 's#127.0.0.1:30400/hello-kenzan:latest#'$BUILDIMG'#' applications/hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
         //sh "kubectl rollout status deployment/hello-kenzan"
 	sh "kubectl run hello-node-pod --image=gustavomr/hello_node:latest --port=8080"
+
+kubectl set image deployment/hello-node-pod hello-node-pod=gustavomr/hello_node:v2 --port=8080
 }
