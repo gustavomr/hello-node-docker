@@ -28,6 +28,6 @@ node {
         //sh "kubectl rollout status deployment/hello-kenzan"
 	//sh "kubectl run hello-node-pod --image=gustavomr/hello_node:latest --port=8080"
 
-	sh "kubectl set image deployment/hello-node-pod hello-node-pod=gustavomr/hello_node:v2 --kubeconfig=kubeconfig"
+	sh "kubectl set image deployment/hello-node-pod hello-node-pod=gustavomr/hello_node:v2 --kubeconfig=/etc/kubernetes/admin.conf"
 	    
 }
