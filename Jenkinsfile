@@ -15,7 +15,8 @@ node {
 
     stage "Build"
     
-        sh "docker build -t ${imageName} -f applications/hello-node-docker/Dockerfile applications/hello-node-docker"
+        //sh "docker build -t ${imageName} -f applications/hello-node-docker/Dockerfile applications/hello-node-docker"
+	sh "docker images"
     
     stage "Push"
 
